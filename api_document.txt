@@ -1,0 +1,114 @@
+Al-Fardan Exchange Technical Interview Projects::
+
+1. Backend API Exposed to Receive JSON input and Resturn JSON Response
+	
+	A. Functionality : Save User Data
+	   API   	 : POST http://localhost:9091/api/user/save
+           Request       :
+			     {
+				"custName" : "Fasil",
+				"note": "Test User"	
+			     }
+			
+	   Response      :
+			     a.SUCCESS Scenario
+				{
+  				 "responseCode": "000",
+  				 "responseDesc": "Data Saved Successfully",
+  				 "custName": "Fasil",
+   				"custId": "2",
+   				"customers": null
+				}
+			      b.Error Scenario
+				{
+   				"responseCode": "400",
+   				"responseDesc": "Invalid Request.Customer name is null or empty",
+   				"custName": null,
+   				"custId": null,
+   				"customers": null
+				}
+		
+	B. Fetch All Users
+	   API 		: GET 	http://localhost:9091/api/users
+	   Response     : 
+			{
+   			"responseCode": "000",
+   			"responseDesc": "Success",
+   			"custName": null,
+   			"custId": null,
+   			"customers":    [
+    			        {
+    			     "customerId": 1,
+     			    "customerName": "Firoz"
+     				},
+            			{
+         			"customerId": 2,
+         			"customerName": "Fasil"
+      				},
+           			{
+         			"customerId": 3,
+         			"customerName": "Malik"
+      				},
+           		 	{
+         			"customerId": 4,
+         			"customerName": "Faiz"
+      				}
+   				]
+			}
+
+-------------------------------------------
+2. Client API Consuming Backend APIs
+
+A. Functionality : Save User Data
+	   API   	 : POST http://localhost:9091/client/user/action/save
+           Request       :
+			     {
+				"custName" : "Firoz",
+				"note": "Test User"	
+			     }
+			
+	   Response      :
+			     a.SUCCESS Scenario
+				{
+  				 "responseCode": "000",
+  				 "responseDesc": "Data Saved Successfully",
+  				 "custName": "Firoz",
+   				"custId": "1",
+   				"customers": null
+				}
+			      b.Error Scenario
+				{
+   				"responseCode": "400",
+   				"responseDesc": "Invalid Request.Customer name is null or empty",
+   				"custName": null,
+   				"custId": null,
+   				"customers": null
+				}
+		
+	B. Fetch All Users
+	   API 		: GET 	http://localhost:9091/client/user/list
+	   Response     : 
+			{
+   			"responseCode": "000",
+   			"responseDesc": "Success",
+   			"custName": null,
+   			"custId": null,
+   			"customers":    [
+    			        {
+    			     "customerId": 1,
+     			    "customerName": "Firoz"
+     				},
+            			{
+         			"customerId": 2,
+         			"customerName": "Fasil"
+      				},
+           			{
+         			"customerId": 3,
+         			"customerName": "Malik"
+      				},
+           		 	{
+         			"customerId": 4,
+         			"customerName": "Faiz"
+      				}
+   				]
+			}
